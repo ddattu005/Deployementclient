@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LandingPage from "./pages/LandingPage";
@@ -14,6 +14,7 @@ import { useState, useEffect } from "react";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
   // Check if user is logged in (persistent login)
   useEffect(() => {
@@ -23,8 +24,11 @@ function App() {
       setIsAuthenticated(true);
     } else {
       setIsAuthenticated(false);
+      if (window.location.pathname !== '/' && window.location.pathname !== '/login' && window.location.pathname !== '/signup') {
+        navigate('/login');
+      }
     }
-  }, []);
+  }, [navigate]);
 
   // Handle login & logout functions
   const handleLogin = () => {
@@ -39,7 +43,7 @@ function App() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setIsAuthenticated(false);
-    window.location.href = "/login";
+    navigate('/login');
   };
 
   return (

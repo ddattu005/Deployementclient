@@ -11,11 +11,16 @@ const Navbar = ({ onLogout }) => {
     { id: 3, text: 'Market is about to close', time: '15m ago' }
   ]);
 
+  const handleLogout = (e) => {
+    e.preventDefault();
+    onLogout();
+  };
+
   return (
     <nav className="navbar">
       {/* Left Section */}
       <div className="nav-left">
-        <Link to="/" className="nav-logo">
+        <Link to="/dashboard" className="nav-logo">
           <FaChartLine className="logo-icon" />
           <span>StockSim</span>
         </Link>
@@ -23,7 +28,7 @@ const Navbar = ({ onLogout }) => {
 
       {/* Middle Section */}
       <div className="nav-middle">
-        <Link to="/dashboard" className="nav-link active">Dashboard</Link>
+        <Link to="/dashboard" className="nav-link">Dashboard</Link>
         <Link to="/portfolio" className="nav-link">Portfolio</Link>
         <Link to="/watchlist" className="nav-link">Watchlist</Link>
         <Link to="/news" className="nav-link">Market News</Link>
@@ -66,7 +71,7 @@ const Navbar = ({ onLogout }) => {
         </Link>
 
         {/* Logout */}
-        <button onClick={onLogout} className="logout-button">
+        <button onClick={handleLogout} className="logout-button">
           <FaSignOutAlt />
           <span>Logout</span>
         </button>
