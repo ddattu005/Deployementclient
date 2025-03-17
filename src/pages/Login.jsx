@@ -6,7 +6,7 @@ import "./Login.css"; // Import external CSS file
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // 1 second
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [user, setUser] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -15,7 +15,8 @@ const Login = () => {
   // Check if user is already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (token) {
+    const user = localStorage.getItem("user");
+    if (token && user) {
       navigate("/dashboard");
     }
   }, [navigate]);
@@ -40,8 +41,11 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("user", JSON.stringify(data.user));
         
-        // Force page reload and redirect
-        window.location.href = "/dashboard";
+        // Call the onLogin prop to update app state
+        onLogin();
+        
+        // Navigate to dashboard
+        navigate("/dashboard");
       } else {
         setError(data.message || "Login failed. Please try again.");
       }

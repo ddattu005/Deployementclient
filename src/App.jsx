@@ -17,25 +17,35 @@ function App() {
 
   // Check if user is logged in (persistent login)
   useEffect(() => {
+    const token = localStorage.getItem("token");
     const user = localStorage.getItem("user");
-    if (user) setIsAuthenticated(true);
+    if (token && user) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
   }, []);
 
   // Handle login & logout functions
   const handleLogin = () => {
-    setIsAuthenticated(true);
-    localStorage.setItem("user", "true"); // Simulating login state
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+    if (token && user) {
+      setIsAuthenticated(true);
+    }
   };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
+    localStorage.removeItem("token");
     localStorage.removeItem("user");
+    setIsAuthenticated(false);
+    window.location.href = "/login";
   };
 
   return (
     <>
       {/* Only show Navbar on authenticated routes */}
-      {isAuthenticated && <Navbar isAuthenticated={isAuthenticated} onLogout={handleLogout} />}
+      {isAuthenticated && <Navbar onLogout={handleLogout} />}
       
       <div className="min-h-screen">
         <Routes>
