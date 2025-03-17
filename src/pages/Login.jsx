@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import config from "../config";
 import "./Login.css"; // Import external CSS file
 
 const MAX_RETRIES = 3;
@@ -22,7 +23,7 @@ const Login = () => {
   const attemptLogin = async () => {
     try {
       console.log('Attempting login with:', { email: user.email });
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch(`${config.apiUrl}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
