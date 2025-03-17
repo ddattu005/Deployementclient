@@ -1,0 +1,122 @@
+/* Center the form */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #121212, #1a1a2e);
+  }
+  
+  /* Login Form Styling */
+  .login-form {
+    background: #222;
+    padding: 2rem;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: white;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #ffcc00;
+  }
+  
+  /* Input fields */
+  .login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background: #333;
+    color: white;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .login-form input:focus {
+    outline: none;
+    background: #444;
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+  }
+  
+  /* Login Button */
+  .login-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background: #ffcc00;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .login-form button:hover:not(:disabled) {
+    background: #e6b800;
+    transform: translateY(-2px);
+  }
+  
+  .login-form button:disabled {
+    background: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .login-form button.loading {
+    position: relative;
+    color: transparent;
+  }
+  
+  .login-form button.loading::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 3px solid #000;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: button-loading-spinner 1s linear infinite;
+  }
+  
+  @keyframes button-loading-spinner {
+    from {
+      transform: rotate(0turn);
+    }
+    to {
+      transform: rotate(1turn);
+    }
+  }
+  
+  /* Error Message */
+  .error {
+    color: #ff4444;
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  
+  /* Signup Link */
+  .signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  
+  .signup-link a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  

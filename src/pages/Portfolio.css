@@ -1,0 +1,183 @@
+.portfolio-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  color: white;
+}
+
+/* Portfolio Summary */
+.portfolio-summary {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.summary-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.summary-card.main {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-icon {
+  color: #facc15;
+  font-size: 1.5rem;
+}
+
+.card-content h3 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.card-content p {
+  font-size: 1.1rem;
+}
+
+/* Portfolio Section */
+.portfolio-section {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.portfolio-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.history-icon {
+  color: #facc15;
+  font-size: 1.25rem;
+}
+
+/* Tables */
+.holdings-table,
+.transactions-table {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-header {
+  display: grid;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  font-weight: 600;
+  border-radius: 8px 8px 0 0;
+}
+
+.holdings-table .table-header {
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.transactions-table .table-header {
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
+}
+
+.table-row {
+  display: grid;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+}
+
+.holdings-table .table-row {
+  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.transactions-table .table-row {
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1.5fr;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.symbol {
+  font-weight: 600;
+  color: #facc15;
+}
+
+.positive {
+  color: #10b981;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.negative {
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.buy {
+  color: #10b981;
+}
+
+.sell {
+  color: #ef4444;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .portfolio-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .holdings-table,
+  .transactions-table {
+    overflow-x: scroll;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-page {
+    padding: 0 1rem;
+  }
+
+  .card-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .holdings-table .table-header,
+  .holdings-table .table-row {
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+  }
+
+  .holdings-table .table-header span:nth-child(n+5),
+  .holdings-table .table-row span:nth-child(n+5) {
+    display: none;
+  }
+
+  .transactions-table .table-header,
+  .transactions-table .table-row {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .transactions-table .table-header span:nth-child(n+4),
+  .transactions-table .table-row span:nth-child(n+4) {
+    display: none;
+  }
+} 
